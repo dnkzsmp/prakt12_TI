@@ -4,8 +4,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class FileGenerator {
-    private int sizeOfAlphabet;
-    private List<String> alphabet;
+    private final List<String> alphabet;
     private List<Double> probabilities = null;
 
     public FileGenerator(int sizeOfAlphabet) {
@@ -13,11 +12,10 @@ public class FileGenerator {
             throw new RuntimeException("Размер алфавита не может быть меньше 1");
         }
 
-        this.sizeOfAlphabet = sizeOfAlphabet;
         alphabet = new ArrayList<>();
 
         System.out.println("Введите символы алфавита");
-        for (int i = 0; i < this.sizeOfAlphabet; ++i) {
+        for (int i = 0; i < sizeOfAlphabet; ++i) {
             String newChar = Main.scan.next();
             if (!alphabet.contains(newChar))
                 alphabet.add(newChar);

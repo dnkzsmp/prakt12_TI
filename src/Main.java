@@ -37,21 +37,21 @@ public class Main {
                 System.out.println("log(m) = " + logM);
 
                 if (result <= logM)
-                    System.out.println("Энтропия 1-го метода не превышает log(m)!");
+                    System.out.println("Энтропия 1-го метода не превышает log(m)!\n");
                 else
-                    System.out.println("Энтропия превысила log(m)");
+                    System.out.println("Энтропия превысила log(m)\n");
 
                 result = ShannonMethods.secondMethodEntropy(filename);
-                System.out.println("\nЭнтропия файла без вероятностей \"" + filename + "\" по 2-му методу: " + result);
+                System.out.println("Энтропия файла с вероятностями \"" + filename + "\" по 2-му методу: " + result);
 
                 logM = ShannonMethods.log2(fileGenerator.getAlphabet().size());
 
                 System.out.println("log(m) = " + logM);
 
                 if (result <= logM)
-                    System.out.println("Энтропия 2-го метода не превышает log(m)!");
+                    System.out.println("Энтропия 2-го метода не превышает log(m)!\n");
                 else
-                    System.out.println("Энтропия 2-го метода превысила log(m)");
+                    System.out.println("Энтропия 2-го метода превысила log(m)\n");
             }
 
             case "n" -> {
@@ -59,26 +59,26 @@ public class Main {
                 filename = "file2.txt";
 
                 result = ShannonMethods.firstMethodEntropy(fileGenerator.getAlphabet(), filename);
-                System.out.println("Энтропия файла с вероятностями \"" + filename + "\" по 1-му методу: " + result);
+                System.out.println("Энтропия файла без вероятностей \"" + filename + "\" по 1-му методу: " + result);
 
                 logM = ShannonMethods.log2(fileGenerator.getAlphabet().size());
                 System.out.println("log(m) = " + logM);
 
                 if (result <= logM)
-                    System.out.println("Энтропия 1-го метода не превышает log(m)!");
+                    System.out.println("Энтропия 1-го метода не превышает log(m)!\n");
                 else
-                    System.out.println("Энтропия 1-го метода превысила log(m)");
+                    System.out.println("Энтропия 1-го метода превысила log(m)\n");
 
                 result = ShannonMethods.secondMethodEntropy(filename);
-                System.out.println("\nЭнтропия файла без вероятностей\"" + filename + "\" по 2-му методу: " + result);
+                System.out.println("Энтропия файла без вероятностей\"" + filename + "\" по 2-му методу: " + result);
 
                 logM = ShannonMethods.log2(fileGenerator.getAlphabet().size());
                 System.out.println("log(m) = " + logM);
 
                 if (result <= logM)
-                    System.out.println("Энтропия 2-го метода не превышает log(m)!");
+                    System.out.println("Энтропия 2-го метода не превышает log(m)!\n");
                 else
-                    System.out.println("Энтропия 2-го метода превысила log(m)");
+                    System.out.println("Энтропия 2-го метода превысила log(m)\n");
             }
 
             default -> System.out.println("Нужно ввести \"y\" или \"n\"");
@@ -96,20 +96,20 @@ public class Main {
         System.out.println("log(m) = " + logM);
 
         if (result <= logM)
-            System.out.println("Энтропия 1-го метода не превышает log(m)!");
+            System.out.println("Энтропия 1-го метода не превышает log(m)!\n");
         else
-            System.out.println("Энтропия 1-го метода превысила log(m)");
+            System.out.println("Энтропия 1-го метода превысила log(m)\n");
 
         result = ShannonMethods.secondMethodParseAndEntropy(filename);
-        System.out.println("\nЭнтропия файла с литературой \"" + filename + "\" по 2-му методу: " + result);
+        System.out.println("Энтропия файла с литературой \"" + filename + "\" по 2-му методу: " + result);
 
         logM = ShannonMethods.log2(ShannonMethods.alphabetOfUpdatedFile(filename).size());
         System.out.println("log(m) = " + logM);
 
         if (result <= logM)
-            System.out.println("Энтропия 2-го метода не превышает log(m)!");
+            System.out.println("Энтропия 2-го метода не превышает log(m)!\n");
         else
-            System.out.println("Энтропия 2-го метода превысила log(m)");
+            System.out.println("Энтропия 2-го метода превысила log(m)\n");
 
         filename = "src/ShannonMethods.java";
 
@@ -120,19 +120,19 @@ public class Main {
         System.out.println("log(m) = " + logM);
 
         if (result <= logM)
-            System.out.println("Энтропия 1-го метода не превышает log(m)!");
+            System.out.println("Энтропия 1-го метода не превышает log(m)!\n");
         else
-            System.out.println("Энтропия 1-го метода превысила log(m)");
+            System.out.println("Энтропия 1-го метода превысила log(m)\n");
 
         result = ShannonMethods.secondMethodParseAndEntropyJava(filename);
-        System.out.println("\nЭнтропия файла с кодом \"" + filename + "\" по 2-му методу: " + result);
+        System.out.println("Энтропия файла с кодом \"" + filename + "\" по 2-му методу: " + result);
 
         logM = ShannonMethods.log2(ShannonMethods.alphabetOfUpdatedFile(filename).size());
         System.out.println("log(m) = " + logM);
 
         if (result <= logM)
-            System.out.println("Энтропия 2-го метода не превышает log(m)!");
+            System.out.println("Энтропия 2-го метода не превышает log(m)!\n");
         else
-            System.out.println("Энтропия 2-го метода превысила log(m)");
+            System.out.println("Энтропия 2-го метода превысила log(m)\n");
     }
 }

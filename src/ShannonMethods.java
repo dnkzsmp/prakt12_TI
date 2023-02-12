@@ -11,6 +11,7 @@ public class ShannonMethods {
     }
 
     public static double firstMethodEntropy(@NotNull List<String> alphabet, @NotNull String filename) throws IOException {
+        System.out.println("Размер алфавита: " + alphabet.size());
         List<Double> frequencies = new ArrayList<>();
         for (String letter : alphabet) {
             BufferedReader reader = new BufferedReader(new FileReader(filename));
@@ -28,7 +29,7 @@ public class ShannonMethods {
             frequencies.add((double) countOfSearchingChar / (double) countOfAllChars);
         }
 
-        System.out.println("[Частоты файла \"" + filename + "\" в 1-ом методе]");
+        System.out.println("[Частоты символов файла \"" + filename + "\" в 1-ом методе]");
         for (int i = 0; i < alphabet.size(); ++i)
             System.out.println(alphabet.get(i) + " -> " + frequencies.get(i));
         System.out.println();
@@ -54,12 +55,14 @@ public class ShannonMethods {
                 pairs.add(newPair.toString());
                 newPair = new StringBuilder();
             }
-            newPair.append(c);
+            if (!String.valueOf(c).matches("\\p{Punct}"))
+                newPair.append(c);
         }
         reader.close();
 
         Collections.sort(pairs);
         List<String> pairsWithoutDuplicates = pairs.stream().distinct().toList();
+        System.out.println("Количество пар: " + pairsWithoutDuplicates.size());
 
         for (String currentPair : pairsWithoutDuplicates) {
             int countOfCurrentPair = 0;
@@ -69,6 +72,11 @@ public class ShannonMethods {
             }
             frequencies.add((double) countOfCurrentPair / (double) pairs.size());
         }
+
+        System.out.println("[Частоты пар символов файла \"" + filename + "\" в 1-ом методе]");
+        for (int i = 0; i < pairsWithoutDuplicates.size(); ++i)
+            System.out.println(pairsWithoutDuplicates.get(i) + " -> " + frequencies.get(i));
+        System.out.println();
 
         double result = 0;
         for (double freq : frequencies)
@@ -127,7 +135,8 @@ public class ShannonMethods {
         BufferedWriter writer = new BufferedWriter(new FileWriter(updatedFilename));
         writer.write(res);
         writer.close();
-        return firstMethodEntropy(alphabetOfUpdatedFile(updatedFilename), updatedFilename);
+        List<String> alphabet = alphabetOfUpdatedFile(updatedFilename);
+        return firstMethodEntropy(alphabet, updatedFilename);
     }
 
     public static double secondMethodParseAndEntropy(@NotNull String filename) throws IOException {
@@ -145,7 +154,8 @@ public class ShannonMethods {
         BufferedWriter writer = new BufferedWriter(new FileWriter(updatedFilename));
         writer.write(res);
         writer.close();
-        return firstMethodEntropy(alphabetOfUpdatedFile(updatedFilename), updatedFilename);
+        List<String> alphabet = alphabetOfUpdatedFile(updatedFilename);
+        return firstMethodEntropy(alphabet, updatedFilename);
     }
 
     public static double secondMethodParseAndEntropyJava(@NotNull String filename) throws IOException {
